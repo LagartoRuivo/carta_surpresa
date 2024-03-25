@@ -71,8 +71,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #ffffff;
-            width: 80%;
-            height: 80%;
+            width: 400px; /* Largura pré-definida */
+            max-height: 400px; /* Altura máxima pré-definida */
+            overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
             padding: 20px;
             border-radius: 10px;
             border: 2px solid #000000;
@@ -85,7 +86,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #ffffff;
-            padding: 20px;
+            padding: 50px 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 5; /* Garante que o pop-up esteja sobre a carta */
@@ -98,6 +99,7 @@
         <div class="flap" id="flap"></div>
         <div class="coracao" id="coracao">♥</div>
         <div class="carta" id="carta">
+            <h2></h2>
             <h2>Carta de Amor</h2>
             <p>Parabeeeeeens, você conseguiu adivinhar a senha meu Biro Pesguiça 🦥</p>
             <p>Então, fiz esse sitezinho bem simples, só pra demonstrar o amor que eu sinto por você, o quanto você é especial pra mim, sei que as vezes posso ser grosso ou não demonstrar tanto, jogar bastante, fazer você se sentir desanimada, chateada, titinhas, brabinhas, mas saiba que, eu te amo mais que tudo nesse mundo, você é a pessoa mais especial do mundo pra mim, pode ter certeza disso, vou fazer de tudo pra te fazer a mulher mais feliz do mundo e vou lutar todo dia pra que você nunca perca o encanto que você sente por mim, fazer de tudo pro nosso amor nunca ter fim, você é a mulher mais incrível do mundo e não quero te perder por nada nesse mundo!</p>
@@ -132,6 +134,7 @@
                 alert("Senha incorreta. Tente novamente.");
             }
         }
+
     </script>
 </body>
 </html>
