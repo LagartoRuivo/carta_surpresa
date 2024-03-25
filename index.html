@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta surpresa</title>
+    <style>
+        body {
+            background-color: #ecf0f1; /* Azul claro */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .envelope {
+            background-color: #ffffff;
+            width: 400px;
+            height: 250px;
+            border: 4px solid #8e8e8e;
+            border-radius: 20px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 50%;
+            background-color: #ffffff;
+            border-bottom: 4px solid #8e8e8e;
+            border-radius: 0 0 20px 20px;
+            z-index: 1;
+        }
+        .envelope:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 30px 20px 0 20px;
+            border-color: #8e8e8e transparent transparent transparent;
+            z-index: 2;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+            background-color: #ffffff;
+        }
+        .coracao {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: red;
+            cursor: pointer;
+            z-index: 3; /* Garante que o coração apareça sobre o envelope */
+        }
+        .carta {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            width: 80%;
+            height: 80%;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            z-index: 4; /* Garante que a carta apareça sobre a frente do envelope */
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 5; /* Garante que o pop-up esteja sobre a carta */
+        }
+    </style>
+</head>
+<body>
+    <h1>Carta surpresa</h1>
+    <div class="envelope" id="envelope">
+        <div class="flap" id="flap"></div>
+        <div class="coracao" id="coracao">♥</div>
+        <div class="carta" id="carta">
+            <h2>Carta de Amor</h2>
+            <p>Parabeeeeeens, você conseguiu adivinhar a senha meu Biro Pesguiça 🦥</p>
+            <p>Então, fiz esse sitezinho bem simples, só pra demonstrar o amor que eu sinto por você, o quanto você é especial pra mim, sei que as vezes posso ser grosso ou não demonstrar tanto, jogar bastante, fazer você se sentir desanimada, chateada, titinhas, brabinhas, mas saiba que, eu te amo mais que tudo nesse mundo, você é a pessoa mais especial do mundo pra mim, pode ter certeza disso, vou fazer de tudo pra te fazer a mulher mais feliz do mundo e vou lutar todo dia pra que você nunca perca o encanto que você sente por mim, fazer de tudo pro nosso amor nunca ter fim, você é a mulher mais incrível do mundo e não quero te perder por nada nesse mundo!</p>
+            <p>Sei que você está passando por um momento difícil, com muitas coisas na cabeça e que as vezes, eu não te dou a atenção que você merece, mas muitas vezes é por eu não saber o que fazer pra te ajudar, mas saiba que sempre estou pensando em um jeito de te animar quando está triste, me reconciliar quando está brabinhas, ficar feliz junto com você, entender o seu lado das coisas, ou seja, eu sempre estou pensando em você, em cada coisinha que acontece ao meu redor, quando a gente não está junto, eu penso "Nossa, ela ia gostar disso", "Vou contar pra ela depois", "Ela ia achar isso engraçado", tudo, absolutamente tudo me faz pensar em você.</p>
+            <p>O site é bem simples, mas saiba que foi feito de coração.</p>
+            <p>Te amo mais que tudo, mais que ontem e menos que amanhã</p>
+            <p>Com amor, anjereco!</p>
+        </div>
+    </div>
+
+    <!-- Pop-up de senha -->
+    <div class="popup" id="popup">
+        <h2>Insira a senha para abrir a carta, dica: ZzZzZz</h2>
+        <input type="password" id="senha">
+        <button onclick="verificarSenha()">Abrir Carta</button>
+    </div>
+
+    <script>
+        document.getElementById("coracao").addEventListener("click", function() {
+            document.getElementById("popup").style.display = "block";
+        });
+
+        function verificarSenha() {
+            var senhaInserida = document.getElementById("senha").value;
+            // Aqui você pode definir sua senha desejada
+            var senhaCorreta = "Biro Pesguiça";
+
+            if (senhaInserida.toLowerCase() === senhaCorreta.toLowerCase()) {
+                document.getElementById("popup").style.display = "none";
+                document.getElementById("carta").style.display = "block";
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>
